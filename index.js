@@ -45,7 +45,7 @@ window.addEventListener('resize', () => {
     }
 });
 
-const toggler = document.getElementById('theme-toggle');
+/*const toggler = document.getElementById('theme-toggle');
 
 toggler.addEventListener('change', function () {
     if (this.checked) {
@@ -53,10 +53,10 @@ toggler.addEventListener('change', function () {
     } else {
         document.body.classList.remove('light');
     }
-}); 
+}); */
 
 // Always apply the dark theme
-//document.body.classList.add('dark');
+document.body.classList.add('dark');
 
 let profileDropdownList = document.querySelector(".profile-dropdown-list");
 let btn = document.querySelector(".profile-dropdown-btn");
