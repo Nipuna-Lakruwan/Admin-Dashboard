@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/favicon.svg" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="meeting.css">
-    <title>Dashboard</title>
+    <title>Dashboard - Bookings</title>
 </head>
 
 <body>
@@ -33,11 +34,12 @@
         </a>
         
         <ul class="side-menu">
-          <li class="active"><a href="dashboard.html"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+          <li><a href="dashboard.html"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
           <li><a href="meeting.html"><i class='bx bx-store-alt'></i>Vehicle Management</a></li>
           <li><a href="masters.html"><i class='bx bx-news' ></i>Masters</a></li>
           <li><a href="meeting.html"><i class='bx bx-message-square-dots'></i>Meeting</a></li>
           <li><a href="vehicles.html"><i class='bx bx-car' ></i>Vehicles</a></li>
+          <li class="active"><a href="bookings.html"><i class='bx bx-calendar'></i>Bookings</a></li>
           <li><a href="inspections.html"><i class='bx bxs-car-mechanic'></i>Inspections</a></li>
           <li><a href="jobCard.html"><i class='bx bx-credit-card-front' ></i>Job Cards</a></li>
           <li><a href="businessPartner.html"><i class='bx bx-id-card' ></i>Business Partners</a></li>
@@ -146,71 +148,69 @@
                 <main>
                     <div class="header">
                         <div class="left">
-                            <h1>Meetings</h1>
+                            <h1>Bookings</h1>
                         </div>
-                        <a href="#" class="report">
-                            <i class='bx bx-cloud-download'></i>
-                            <span>New Meeting</span>
-                        </a>
-                    </div>
 
                     <div class="container">
-                        <h2>Meetings</h2>
                         <div class="toolbar">
                             <input type="text" id="searchBox" placeholder="search..." />
-                            <button id="newMeetingBtn">+ New Meetings</button>
+                            <button id="newMeetingBtn">+ New Booking</button>
                         </div>
                         <div class="filters">
-                            <input type="text" placeholder="Meeting Type Name" />
+                            <select id="customerNames">
+                                <option value="" disabled selected>Customer Name</option>
+                                <option value="Nipuna">Nipuna</option>
+                                <option value="Pasindu">Pasindu</option>
+                                <!-- Add more options as needed -->
+                            </select>
+                            <select id="Vehicle Register">
+                                <option value="" disabled selected>Vehicle Register</option>
+                                <option value="WP CA-1234">WP CA-1234</option>
+                                <option value="WP CA-5678">WP CA-5678</option>
+                                <!-- Add more options as needed -->
+                            </select>
                             <input type="date" id="startDate" />
                             <span>-</span>
                             <input type="date" id="endDate" />
-                            <select id="department">
-                                <option value="" disabled selected>Department</option>
-                                <option value="IT">IT</option>
-                                <option value="HR">HR</option>
-                                <!-- Add more options as needed -->
-                            </select>
-                            <input type="text" placeholder="Location Name" />
-                            <select id="organizedBy">
-                                <option value="" disabled selected>Organized By</option>
-                                <option value="John Doe">John Doe</option>
-                                <option value="Jane Smith">Jane Smith</option>
-                                <!-- Add more options as needed -->
-                            </select>
-                            <select id="reporter">
-                                <option value="" disabled selected>Reporter</option>
-                                <option value="Reporter 1">Reporter 1</option>
-                                <option value="Reporter 2">Reporter 2</option>
-                                <!-- Add more options as needed -->
-                            </select>
                         </div>
-                        <table id="meetingsTable">
+                        <table id="bookingsTable">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Meeting Name</th>
-                                    <th>Meeting Type Name</th>
-                                    <th>Start Date</th>
-                                    <th>End Date</th>
-                                    <th>Department</th>
-                                    <th>Location Name</th>
-                                    <th>Organized By</th>
-                                    <th>Reporter</th>
+                                    <th>Title</th>
+                                    <th>Customer Name</th>
+                                    <th>Vehicle Register Number</th>
+                                    <th>Booking Date</th>
+                                    <th>Note</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td><a href="#">VW Vento</a></td>
-                                    <td>test</td>
-                                    <td>06/17/2024</td>
-                                    <td>06/18/2024</td>
-                                    <td>repair shop</td>
-                                    <td>test</td>
-                                    <td>hhhh dddd</td>
-                                    <td>عبد الرحمن السردوني</td>
+                                    <td>Oil Change</td>
+                                    <td>Nipuna</td>
+                                    <td>WP CA-1234</td>
+                                    <td>2024-08-01</td>
+                                    <td>Change engine oil and oil filter</td>
+                                    <td>
+                                        <button class="editBtn">Edit</button>
+                                        <button class="deleteBtn">Delete</button>
+                                    </td>
                                 </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Wheel Alignment</td>
+                                    <td>Pasindu</td>
+                                    <td>WP CA-5678</td>
+                                    <td>2024-08-02</td>
+                                    <td>Wheel alignment and balancing</td>
+                                    <td>
+                                        <button class="editBtn">Edit</button>
+                                        <button class="deleteBtn">Delete</button>
+                                    </td>
+                                </tr>
+                                
+
                                 <!-- Add more rows as needed -->
                             </tbody>
                         </table>
