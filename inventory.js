@@ -13,14 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
           name: 'Engine Oil',
           category: 'Oil',
           quantity: 100,
-          price: '$50'
+          price: 'Rs.50,000'
       },
       {
           id: '002',
           name: 'Brake Pads',
           category: 'Brakes',
           quantity: 150,
-          price: '$75'
+          price: 'Rs.75,000'
       },
       // Add more item objects as needed
   ];
