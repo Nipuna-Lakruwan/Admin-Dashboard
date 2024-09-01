@@ -1,0 +1,106 @@
+
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+#searchBox {
+  padding: 8px;
+  border: 1px solid #8b0000;
+  border-radius: 5px;
+  width: 200px;
+}
+
+#newMeetingBtn {
+  padding: 8px 16px;
+  background-color: #8b0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters input,
+.filters select {
+  padding: 8px;
+  border: 1px solid #8b0000;
+  border-radius: 5px;
+  width: 150px;
+}
+
+#meetingsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+#meetingsTable th,
+#meetingsTable td {
+  border: 1px solid #8b0000;
+  padding: 10px;
+  text-align: left;
+}
+
+#meetingsTable th {
+  background-color: #f1f1f1;
+}
+
+#meetingsTable a {
+  color: #8b0000;
+  text-decoration: none;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination span {
+  font-size: 14px;
+}
+
+#rowsPerPage {
+  padding: 8px;
+  border: 1px solid #8b0000;
+  border-radius: 5px;
+}
+
+.pagination-controls {
+  display: flex;
+  gap: 5px;
+}
+
+.pagination-controls button {
+  padding: 8px 12px;
+  border: 1px solid #8b0000;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.pagination-controls button:hover {
+  background-color: #ddd;
+}
