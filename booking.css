@@ -1,268 +1,106 @@
-/* General Styling */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f2f5;
-  color: #333;
-}
 
-.sidebar {
-  width: 250px;
-  height: 100vh;
-  background-color: #222;
-  color: #fff;
-  position: fixed;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  transition: width 0.3s;
-}
 
-.sidebar .logo {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-}
-
-.sidebar .logo-name {
-  font-size: 18px;
-  margin-left: 10px;
-}
-
-.sidebar ul.side-menu {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar ul.side-menu li {
-  padding: 10px 20px;
-}
-
-.sidebar ul.side-menu li a {
-  color: #fff;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-}
-
-.sidebar ul.side-menu li.active a {
-  background-color: #333;
-  border-radius: 5px;
-}
-
-.sidebar ul.side-menu li:hover a {
-  background-color: #444;
-  border-radius: 5px;
-}
-
-.sidebar ul.side-menu li a i {
-  margin-right: 10px;
-}
-
-.sidebar ul.side-menu li.logout a {
-  color: #e74c3c;
-}
-
-.sidebar ul.side-menu li.logout a:hover {
-  background-color: #e74c3c;
-  color: #fff;
-}
-
-/* Content Styling */
-.content {
-  margin-left: 250px;
-  padding: 20px;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
+.container {
+  max-width: 1200px;
+  margin: auto;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-nav .form-input {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 5px 10px;
-}
-
-nav .form-input input[type="search"] {
-  border: none;
-  outline: none;
-  padding: 5px;
-}
-
-nav .form-input .search-btn {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-nav .profile-dropdown {
-  position: relative;
-  cursor: pointer;
-}
-
-nav .profile-dropdown-btn {
-  display: flex;
-  align-items: center;
-}
-
-nav .profile-dropdown-list {
-  display: none;
-  position: absolute;
-  top: 40px;
-  right: 0;
-  background-color: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  overflow: hidden;
-  z-index: 100;
-}
-
-nav .profile-dropdown-list-item {
-  padding: 10px 20px;
-}
-
-nav .profile-dropdown-list-item a {
-  text-decoration: none;
+h2 {
   color: #333;
+  margin-bottom: 20px;
 }
 
-nav .profile-dropdown-list-item:hover {
-  background-color: #f0f2f5;
-}
-
-.profile-dropdown .profile-dropdown-list {
-  display: none;
-}
-
-/* Toolbar and Filters */
 .toolbar {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
-.toolbar input[type="text"] {
-  padding: 10px;
-  border: 1px solid #ccc;
+#searchBox {
+  padding: 8px;
+  border: 1px solid #8b0000;
   border-radius: 5px;
-  width: 300px;
+  width: 200px;
 }
 
-.toolbar button {
-  background-color: #3498db;
-  color: #fff;
+#newBookingsBtn {
+  padding: 8px 16px;
+  background-color: #8b0000;
+  color: white;
   border: none;
-  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-}
-
-.toolbar button:hover {
-  background-color: #2980b9;
 }
 
 .filters {
   display: flex;
-  justify-content: space-between;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
-.filters select,
-.filters input[type="date"] {
-  padding: 10px;
-  border: 1px solid #ccc;
+.filters input,
+.filters select {
+  padding: 8px;
+  border: 1px solid #8b0000;
   border-radius: 5px;
+  width: 150px;
 }
 
-/* Table Styling */
-table {
+#bookingsTable {
   width: 100%;
   border-collapse: collapse;
+  margin-bottom: 20px;
 }
 
-table thead {
-  background-color: #3498db;
-  color: #fff;
-}
-
-table th,
-table td {
+#bookingsTable th,
+#bookingsTable td {
+  border: 1px solid #8b0000;
   padding: 10px;
   text-align: left;
-  border: 1px solid #ccc;
 }
 
-table tbody tr:nth-child(even) {
-  background-color: #f0f2f5;
+#bookingsTable th {
+  background-color: #f1f1f1;
 }
 
-table tbody tr:hover {
-  background-color: #d5f5e3;
+#bookingsTable a {
+  color: #8b0000;
+  text-decoration: none;
 }
 
-.editBtn,
-.deleteBtn {
-  background-color: #2ecc71;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination span {
+  font-size: 14px;
+}
+
+#rowsPerPage {
+  padding: 8px;
+  border: 1px solid #8b0000;
   border-radius: 5px;
+}
+
+.pagination-controls {
+  display: flex;
+  gap: 5px;
+}
+
+.pagination-controls button {
+  padding: 8px 12px;
+  border: 1px solid #8b0000;
+  border-radius: 5px;
+  background-color: #f1f1f1;
   cursor: pointer;
 }
 
-.deleteBtn {
-  background-color: #e74c3c;
-}
-
-.editBtn:hover {
-  background-color: #27ae60;
-}
-
-.deleteBtn:hover {
-  background-color: #c0392b;
-}
-
-/* Dark Mode */
-body.dark-mode {
-  background-color: #181818;
-  color: #eaeaea;
-}
-
-body.dark-mode .sidebar {
-  background-color: #1f1f1f;
-}
-
-body.dark-mode .content {
-  background-color: #181818;
-}
-
-body.dark-mode nav {
-  background-color: #1f1f1f;
-  color: #eaeaea;
-}
-
-body.dark-mode nav .form-input {
-  border-color: #333;
-}
-
-body.dark-mode nav .profile-dropdown-list {
-  background-color: #333;
-}
-
-body.dark-mode table thead {
-  background-color: #333;
-}
-
-body.dark-mode table tbody tr:nth-child(even) {
-  background-color: #1f1f1f;
+.pagination-controls button:hover {
+  background-color: #ddd;
 }

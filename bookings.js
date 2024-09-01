@@ -1,84 +1,129 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const searchBox = document.getElementById('searchBox');
-  const newBookingsBtn = document.getElementById('newBookingsBtn');
-  const bookingsTable = document.getElementById('bookingsTable');
-  const customerNames = document.getElementById('customerNames');
-  const vehicleRegister = document.getElementById('Vehicle Register');
-  const startDate = document.getElementById('startDate');
-  const endDate = document.getElementById('endDate');
-
-  // Filter function to search through bookings
-  function filterBookings() {
-      const searchText = searchBox.value.toLowerCase();
-      const customerName = customerNames.value.toLowerCase();
-      const vehicleReg = vehicleRegister.value.toLowerCase();
-      const start = startDate.value;
-      const end = endDate.value;
-
-      const rows = bookingsTable.querySelectorAll('tbody tr');
-
-      rows.forEach(row => {
-          const cells = row.getElementsByTagName('td');
-          const title = cells[1].textContent.toLowerCase();
-          const customer = cells[2].textContent.toLowerCase();
-          const vehicle = cells[3].textContent.toLowerCase();
-          const date = cells[4].textContent;
-
-          const matchesSearch = title.includes(searchText) || customer.includes(searchText) || vehicle.includes(searchText);
-          const matchesCustomer = customerName ? customer.includes(customerName) : true;
-          const matchesVehicle = vehicleReg ? vehicle.includes(vehicleReg) : true;
-          const matchesDate = (!start || date >= start) && (!end || date <= end);
-
-          if (matchesSearch && matchesCustomer && matchesVehicle && matchesDate) {
-              row.style.display = '';
-          } else {
-              row.style.display = 'none';
-          }
-      });
-  }
-
-  // Event listeners for the filter inputs
-  searchBox.addEventListener('input', filterBookings);
-  customerNames.addEventListener('change', filterBookings);
-  vehicleRegister.addEventListener('change', filterBookings);
-  startDate.addEventListener('change', filterBookings);
-  endDate.addEventListener('change', filterBookings);
-
-  // Example function to handle adding a new booking
-  newBookingsBtn.addEventListener('click', () => {
-      const newRow = bookingsTable.insertRow(-1);
-      newRow.innerHTML = `
-          <td>3</td>
-          <td>New Booking</td>
-          <td>Customer Name</td>
-          <td>Vehicle Register Number</td>
-          <td>2024-09-01</td>
-          <td>Note about the booking</td>
-          <td>
-              <button class="editBtn">Edit</button>
-              <button class="deleteBtn">Delete</button>
-          </td>
-      `;
-
-      // Re-add event listeners to new buttons
-      addRowEventListeners(newRow);
+document.addEventListener('DOMContentLoaded', function() {
+    const searchBox = document.getElementById('searchBox');
+    const newBookingsBtn = document.getElementById('newBookingsBtn');
+    const rowsPerPage = document.getElementById('rowsPerPage');
+    const bookingsTable = document.getElementById('bookingsTable').getElementsByTagName('tbody')[0];
+    let bookings = [
+        {
+            id: 1,
+            title: 'Oil Change',
+            name: 'Nipuna',
+            vehicleRegisterNumber: 'WP CA-1234',
+            bookingDate: '08/17/2024',
+            note: 'Change engine oil and oil filter',
+        },
+        {
+            id: 2,
+            title: 'Oil Change',
+            name: 'Nipuna',
+            vehicleRegisterNumber: 'WP CA-1234',
+            bookingDate: '08/17/2024',
+            note: 'Change engine oil and oil filter',
+        },
+        {
+            id: 3,
+            title: 'Oil Change',
+            name: 'Nipuna',
+            vehicleRegisterNumber: 'WP CA-1234',
+            bookingDate: '08/17/2024',
+            note: 'Change engine oil and oil filter',
+        },
+        {
+            id: 4,
+            title: 'Oil Change',
+            name: 'Nipuna',
+            vehicleRegisterNumber: 'WP CA-1234',
+            bookingDate: '08/17/2024',
+            note: 'Change engine oil and oil filter',
+        },
+        {
+            id: 5,
+            title: 'Oil Change',
+            name: 'Nipuna',
+            vehicleRegisterNumber: 'WP CA-1234',
+            bookingDate: '08/17/2024',
+            note: 'Change engine oil and oil filter',
+        },
+        {
+            id: 6,
+            title: 'Oil Change',
+            name: 'Nipuna',
+            vehicleRegisterNumber: 'WP CA-1234',
+            bookingDate: '08/17/2024',
+            note: 'Change engine oil and oil filter',
+        },
+        {
+            id: 7,
+            title: 'Oil Change',
+            name: 'Nipuna',
+            vehicleRegisterNumber: 'WP CA-1234',
+            bookingDate: '08/17/2024',
+            note: 'Change engine oil and oil filter',
+        },
+        {
+            id: 8,
+            title: 'Oil Change',
+            name: 'Nipuna',
+            vehicleRegisterNumber: 'WP CA-1234',
+            bookingDate: '08/17/2024',
+            note: 'Change engine oil and oil filter',
+        },
+        {
+            id: 9,
+            title: 'Oil Change',
+            name: 'Nipuna',
+            vehicleRegisterNumber: 'WP CA-1234',
+            bookingDate: '08/17/2024',
+            note: 'Change engine oil and oil filter',
+        },
+        {
+            id: 10,
+            title: 'Oil Change',
+            name: 'Nipuna',
+            vehicleRegisterNumber: 'WP CA-1234',
+            bookingDate: '08/17/2024',
+            note: 'Change engine oil and oil filter',
+        },
+        // Add more bookings objects as needed
+    ];
+  
+    // Function to render table rows
+    function renderTableRows(bookings) {
+        bookingsTable.innerHTML = '';
+        bookings.forEach(bookings => {
+            let row = bookingsTable.insertRow();
+            row.insertCell(0).innerText = bookings.id;
+            row.insertCell(1).innerHTML = `<a href="#">${bookings.title}</a>`;
+            row.insertCell(2).innerText = bookings.name;
+            row.insertCell(3).innerText = bookings.vehicleRegisterNumber;
+            row.insertCell(4).innerText = bookings.bookingDate;
+            row.insertCell(5).innerText = bookings.note;
+        });
+    }
+  
+    // Initial render
+    renderTableRows(bookings);
+  
+    // Search functionality
+    searchBox.addEventListener('input', function() {
+        const query = searchBox.value.toLowerCase();
+        const filteredBookings = bookings.filter(bookings => 
+            bookings.name.toLowerCase().includes(query) ||
+            bookings.type.toLowerCase().includes(query) ||
+            bookings.department.toLowerCase().includes(query)
+        );
+        renderTableRows(filteredBookings);
+    });
+  
+      // Redirect to "New bookings" page when the button is clicked
+      newBookingsBtn.addEventListener('click', function() {
+        window.location.href = 'newBookings.html';
+    });
+  
+    // Rows per page functionality (for demonstration purposes, it's static)
+    rowsPerPage.addEventListener('change', function() {
+        const rows = parseInt(rowsPerPage.value);
+        const paginatedBookings = bookings.slice(0, rows);
+        renderTableRows(paginatedBookings);
+    });
   });
-
-  // Function to add event listeners to each row's buttons
-  function addRowEventListeners(row) {
-      const editBtn = row.querySelector('.editBtn');
-      const deleteBtn = row.querySelector('.deleteBtn');
-
-      editBtn.addEventListener('click', () => {
-          alert('Edit functionality to be implemented.');
-      });
-
-      deleteBtn.addEventListener('click', () => {
-          row.remove();
-      });
-  }
-
-  // Initialize event listeners for the existing rows
-  const rows = bookingsTable.querySelectorAll('tbody tr');
-  rows.forEach(row => addRowEventListeners(row));
-});
