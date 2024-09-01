@@ -13,8 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
           department: 'repair shop',
           location: 'test',
           organizedBy: 'hhhh dddd',
-          reporter: 'عبد الرحمن السردوني'
-      },
+          reporter: 'Nipuna Nipuna'      },
       // Add more meeting objects as needed
   ];
 
